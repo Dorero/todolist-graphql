@@ -1,14 +1,15 @@
 module Mutations
-  class CreateProject < BaseMutation
-    argument :title, String, required: true
+  class UpdateProject < BaseMutation
+    argument :id, ID, required: true
+    argument :title, String, required: false
 
     field :project, Types::ProjectType, null: true
     field :errors, [String], null: true
 
-    def resolve(title:, description: nil, status: 0)
-      project = Project.new(title: title)
+    def resolve(id:, title:)
+      project = Project.update(id, title: title)
 
-      if project.save
+      if project.valid?
         {
           project: project,
           errors: []
