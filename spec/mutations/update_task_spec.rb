@@ -33,7 +33,7 @@ RSpec.describe Mutations::UpdateTask, type: :request do
       GQL
     end
 
-    it 'creates a task' do
+    it 'update a task' do
       post '/graphql', params: { query: query }
       json = JSON.parse(response.body)
       data = json['data']['updateTask']["task"]
