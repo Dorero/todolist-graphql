@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+  postgres:
+    image: postgres:16.0-alpine
+    container_name: todolist_graphql_postgres_container
+    environment:
+      POSTGRES_DB: todolist_graphql_development
+      POSTGRES_USER: todolist
+      POSTGRES_PASSWORD: todolist
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - todolist_graphql_network
+
+volumes:
+  postgres_data:
+
+networks:
+  todolist_graphql_network:
