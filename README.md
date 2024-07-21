@@ -1,6 +1,6 @@
 ## Setup
 ```
-git clone git@github.com:Dorero/todolist-graphql.git && cd todolist-graphql
+git clone git@github.com:Dorero/todolist-graphql.git && cd todolist-graphql && bundle install
 docker compose up -d && rails db:create && rails db:migrate 
 ```
 ## Test
