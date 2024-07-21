@@ -7,3 +7,10 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+10.times do |i|
+  project = Project.create(title: Faker::Name.first_name)
+
+  2.times do
+    Task.create(title: Faker::Name.name, description: Faker::Name.name, status: rand(1), project_id: project.id)
+  end
+end
